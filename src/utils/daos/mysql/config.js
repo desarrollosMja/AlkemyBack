@@ -9,10 +9,9 @@ let con = mysql.createConnection({
 
 con.connect(err => {
   if (err) throw new Error(err)
-  console.log("Connected!")
+  console.log("Mysql Connected!")
   con.query("CREATE DATABASE IF NOT EXISTS Alkemy", (err, result) => {
     if (err) throw new Error(err)
-    console.log("Database created!")
   })
 })
 

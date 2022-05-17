@@ -1,10 +1,12 @@
-const { UsersServices } = require("../services")
-const DbManager = require("../../../utils/daos/mysql/operations.js")
+const UsersServices = require("../services")
 
 class UsersController{
     async create(req,res,next){
         try {
-            await DbManager.newUserTable()
+            const newUserId = await UsersServices.newUser(req.body)
+            if (newUserId != []){
+                res.json({operation: "Success", userId: newUserId})
+            } else res.json({operation: "Failed"})
         } catch (error) {
             res.json({error: error})
         }

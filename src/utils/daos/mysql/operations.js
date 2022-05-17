@@ -28,6 +28,22 @@ class DbManager{
             console.log(error)
         }
     }
+
+    async tableExists(name){
+        try {
+            return await db.schema.hasTable(name)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async newUser(data){
+        try {
+            return await db("users").insert({userEmail: data.email, userPass: data.password})
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
 
 module.exports = new DbManager()
