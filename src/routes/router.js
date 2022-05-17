@@ -1,9 +1,7 @@
-const router = require("express").Router()
+const usersIndex = require("../components/users")
+const inputsIndex = require("../components/inputs")
 
 module.exports = app => {
-    app.use("/", router)
-
-    router.get("/", (req,res) => {
-        res.send("Todo ok")
-    })
+    usersIndex(app)
+    inputsIndex(app)
 }
