@@ -1,4 +1,4 @@
-const DbManager = require("../../../utils/daos/mysql/operations.js")
+const DbManager = require("../../../models/daos/mysql/operations.js")
 
 class InputsServices{
     async newOperation(data){
@@ -16,6 +16,7 @@ class InputsServices{
     async getOperations(){
         try {
             const operations = await DbManager.getOperations()
+            
             return operations
         } catch (error) {
             return error

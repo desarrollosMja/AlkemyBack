@@ -1,5 +1,4 @@
-const DbManager = require("../../../utils/daos/mysql/operations.js")
-const { client, dbName } = require("../../../utils/daos/mongoAtlas/config.js")
+const DbManager = require("../../../models/daos/mysql/operations.js")
 
 class UsersServices{
     async newUser(data){

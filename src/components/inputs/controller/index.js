@@ -31,7 +31,8 @@ class InputsController{
     async deleteOperation(req,res,next){
         try {
             const deleteEntry = await InputsServices.deleteOperation(req.params.operationId)
-            if (deleteEntry == 1) res.json({delete: "ok"})
+            const operations = await this.getOperations()
+            if (deleteEntry == 1) res.json({delete: "ok", operations: operations})
         } catch (error) {
             res.json({error: error})
         }
