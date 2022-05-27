@@ -10,7 +10,6 @@ class DbManager{
                 table.float("amount")
                 table.string("type")
                 table.string("userEmail")
-                table.foreign("userEmail").references("operationId").inTable("users")
             })
         } catch (error) {
             return error
@@ -20,7 +19,7 @@ class DbManager{
     async newUserTable(){
         try {
             await db.schema.createTable("users", table => {
-                table.increments("operationId")
+                table.increments("userId")
                 table.string("userEmail")
                 table.string("userPass")
             })
@@ -58,7 +57,7 @@ class DbManager{
 
     async checkUser(email,password){
         try {
-            const user = await db("users").where({userEmail: email, userPass: password}).select("operationId")
+            const user = await db("users").where({userEmail: email, userPass: password}).select("userId")
             if (user.length == 0){
                 return false
             } else return true
