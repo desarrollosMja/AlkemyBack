@@ -7,4 +7,5 @@ module.exports = app => {
     router.post("/new-operation", InputsController.newOperation)
     router.get("/operations", InputsController.getOperations)
     router.put("/modify", InputsController.modifyOperation)
+    router.delete("/delete/:operationId", InputsController.deleteOperation)
 }

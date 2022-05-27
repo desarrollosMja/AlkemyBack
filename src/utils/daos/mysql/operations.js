@@ -102,6 +102,17 @@ class DbManager{
             return error
         }
     }
+
+    async deleteOperation(id){
+        try {
+            const deleteEntry = await db("personalBudget")
+                                        .where("operationId", id)
+                                        .del()
+            return deleteEntry
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 module.exports = new DbManager()

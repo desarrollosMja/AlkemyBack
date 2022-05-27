@@ -27,6 +27,15 @@ class InputsController{
             res.json({error: error})
         }
     }
+
+    async deleteOperation(req,res,next){
+        try {
+            const deleteEntry = await InputsServices.deleteOperation(req.params.operationId)
+            if (deleteEntry == 1) res.json({delete: "ok"})
+        } catch (error) {
+            res.json({error: error})
+        }
+    }
 }
 
 module.exports = new InputsController()

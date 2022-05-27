@@ -30,6 +30,15 @@ class InputsServices{
             return error
         }
     }
+
+    async deleteOperation(id){
+        try {
+            const deleteEntry = await DbManager.deleteOperation(id)
+            return deleteEntry
+        } catch (error) {
+            return error
+        }
+    }
 }
 
 module.exports = new InputsServices()
